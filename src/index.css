@@ -19,10 +19,13 @@ time, mark, audio, video, #root, input {
 	vertical-align: baseline;
 }
 input{
+  margin-left: .5rem;
   font-size: inherit;
   background-color: transparent;
   padding-left: .5rem;
   border: none;
+  font-weight: inherit;
+  color: inherit;
 }
 input:focus{
   background-color: white;
@@ -93,4 +96,8 @@ margin-left: 4rem;
 }
 .main h4{
   color: grey;
+}
+.education{
+  display: flex;
+  flex-direction: column;
 }

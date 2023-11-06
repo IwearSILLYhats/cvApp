@@ -1,11 +1,19 @@
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import Education from "./Education";
+import { EduItem } from "./eduItem";
+import { v4 } from "uuid";
+import { ListAdd, ListRemove } from "./ListFuncs";
+
 export default function LeftNav () {
+    const [phone, setPhone] = useLocalStorage('phone', '');
+    const [education, setEducation] = useLocalStorage('education', [new EduItem]);
     return (
         <div>
         <section className='leftNav left'>
             <h2>CONTACT</h2>
             <div className="contact">
                 <img src="phone" alt="Phone" />
-                <p><input type="tel" /></p>
+                <p><input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} /></p>
                 <img src="email" alt="Email" />
                 <p><input type="email" /></p>
                 <img src="location" alt="Location" />
@@ -15,10 +23,8 @@ export default function LeftNav () {
             </div>
             <hr />
             <h2>EDUCATION</h2>
-            <h3>Degree/Diploma Name</h3>
-            <h4>Major | Grade</h4>
-            <p>University or College Name</p>
-            <p>Date</p>
+            {education.map(edu => <Education key={edu.id} props={edu} />)}
+
             <hr />
             <ul>
             <h2>SKILLS</h2>

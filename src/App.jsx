@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import {useLocalStorage} from './hooks/useLocalStorage.js'
 import './App.css'
 import LeftNav from './LeftNav'
 import Header from './Header'
