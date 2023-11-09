@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 
-export class EduItem {
+export class EduData {
     constructor () {
         this.diploma = '',
         this.grade = '',
