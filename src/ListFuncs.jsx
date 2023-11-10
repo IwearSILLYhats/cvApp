@@ -1,7 +1,7 @@
 export function ListAdd (item, list, func) {
     return (
         <div>
-            <button onClick={() => {
+            <button className="add" onClick={() => {
                 func([...list, item])
             }}>+</button>
         </div>
@@ -9,7 +9,7 @@ export function ListAdd (item, list, func) {
 }
 export function ListRemove (list, id, func) {
     return (
-            <button onClick={() => {
+            <button className="remove" onClick={(list, id, func) => {
                 func(list.filter(indx => indx.id !== id))
             }}>x</button>
     )
