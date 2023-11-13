@@ -1,11 +1,12 @@
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import Contact from "./Contact";
 import Education from "./Education";
+import List from "./List";
 import { v4 } from "uuid";
 import { ListAdd, ListRemove } from "./ListFuncs";
 
 export default function LeftNav () {
-
+    const [interests, setInterests] = useLocalStorage('interests', '')
     return (
         <div>
         <section className='leftNav left'>
@@ -15,22 +16,16 @@ export default function LeftNav () {
             <h2>EDUCATION</h2>
             <Education />
             <hr />
-            <ul>
             <h2>SKILLS</h2>
-            <li>Thinking</li>
-            <li>Breathing</li>
-            <li>Eating</li>
-            </ul>
+            <List props='skills' />
             <hr />
             <ul>
             <h2>EXPERTISE</h2>
-            <li>Eating</li>
-            <li>Breathing</li>
-            <li>Thinking</li>
+            <List props='expertise' />
             </ul>
             <hr />
             <h2>INTERESTS</h2>
-            <p>Lorem ipsum, dolor sit, amet consectetur, adipisicing elit</p>
+            <p><textarea defaultValue={interests} rows='3' onChange={(e) => setInterests( e.target.value)}></textarea></p>
         </section>
         </div>
     )

@@ -10,15 +10,20 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, #root, input {
+time, mark, audio, video, #root, input, textarea{
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+  box-sizing: border-box;
 }
-input{
+textarea{
+  width: 100%;
+  resize: none;
+}
+input, textarea{
   margin-left: .5rem;
   font-size: inherit;
   background-color: transparent;
@@ -27,7 +32,7 @@ input{
   font-weight: inherit;
   color: inherit;
 }
-input:focus{
+input:focus, input:hover, textarea:focus, textarea:hover{
   background-color: white;
 }
 #root{
