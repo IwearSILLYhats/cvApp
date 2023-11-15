@@ -6,7 +6,7 @@ export class workData {
         this.company = '',
         this.info = '',
         this.date = '',
-        this.skills = [''],
+        this.skills = [{txt: '', id: v4() }],
         this.id = v4()
     }
 }

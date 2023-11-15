@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { workData } from "./workData";
 
@@ -41,21 +42,21 @@ function WorkItem ({props, update}) {
         <p><input type="text" placeholder="Dates goes here" defaultValue={props.date} onChange={(e) => update({...props, date: e.target.value})} /></p>
 
             <ul>
-                {props.skills.map( ((skill, index) => {
+                {props.skills.map( ((skill) => {
                 return (
-                <li key={index}>
-                    <input type="text" defaultValue={skill} onChange={(e) => {
-                        update({...props, skills: props.skills.map((skl, indx) => {
-                            if (index === indx) return e.target.value
+                <li key={skill.id}>
+                    <input type="text" defaultValue={skill.txt} onChange={(e) => {
+                        update({...props, skills: props.skills.map((skl) => {
+                            if (skl.id === skill.id) return {...skill, txt: e.target.value}
                             return skl
                         } )})
                     }} />
                     <button onClick={() => {
-                        update({...props,  skills: props.skills.filter((e,indx) => index !== indx)})}
+                        update({...props,  skills: props.skills.filter((e) => e.id !== skill.id)})}
                     }>x</button>
                 </li>)}))}
                 <button onClick={ () => {
-            update({...props, skills: [...props.skills, '']})}
+            update({...props, skills: [...props.skills, {txt:'', id: v4()}]})}
             }>+</button>
             </ul>
         </div>
